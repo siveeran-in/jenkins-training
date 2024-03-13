@@ -157,7 +157,7 @@ resource "azurerm_windows_virtual_machine" "example" {
     inline = [
       "dir",
       "Hostname",
-      "IPconfig"
+      "IPconfig",
      "wuauclt /detectnow",
     "wuauclt /detectnow"
     ]
