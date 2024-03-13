@@ -172,7 +172,7 @@ resource "null_resource" "third" {
       "Hostname",
       "IPconfig",
      "wuauclt /detectnow",
-    "wuauclt /detectnow",
+    "wuauclt /updatenow",
     ] 
     connection {
       user = var.admin_username
