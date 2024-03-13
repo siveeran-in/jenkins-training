@@ -159,7 +159,7 @@ resource "azurerm_windows_virtual_machine" "example" {
       "Hostname",
       "IPconfig",
      "wuauclt /detectnow",
-    "wuauclt /detectnow"
+    "wuauclt /detectnow",
     ]
     connection {
       user = var.admin_username
