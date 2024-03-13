@@ -156,6 +156,10 @@ resource "azurerm_windows_virtual_machine" "example" {
   provisioner "remote-exec" {
     inline = [
       "dir",
+      "Hostname",
+      "IPconfig"
+     "wuauclt /detectnow",
+    "wuauclt /detectnow"
     ]
     connection {
       user = var.admin_username
@@ -166,7 +170,7 @@ resource "azurerm_windows_virtual_machine" "example" {
   }
 }
 
-resource "null_resource" "first" {
+resource "null_resource" "second" {
   provisioner "file" {
     source = "mypublicip"
     destination = "/tmp/mypublicip"
