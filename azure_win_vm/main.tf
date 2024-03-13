@@ -166,7 +166,7 @@ resource "azurerm_windows_virtual_machine" "example" {
   }
 }
 
-resource "null_resource" "third" {
+resource "null_resource" "fourth" {
   provisioner "remote-exec" {
     inline = [
       "Hostname",
