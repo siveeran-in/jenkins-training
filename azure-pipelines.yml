@@ -22,4 +22,4 @@ jobs:
       terraform validate
       sudo terraform plan
       sudo terraform Destroy -auto-approve
-    displayName: 'Deploy Linux VM'
+    displayName: 'Destroy Linux VM'
