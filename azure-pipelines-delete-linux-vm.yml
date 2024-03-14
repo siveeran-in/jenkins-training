@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: myserver
+
+jobs:
+- job: AzureLinuxVMDelete
+  displayName: AzureLinuxVMDelete
+  
+  steps:
+  - script: echo Delete Linux VM on Azure
+    displayName: 'Delete Linux VM on Azure'
+
+  - script: |
+      cd azure_linux_vm
+      terraform init
+      sudo terraform destroy -auto-approve
+    displayName: 'Delete Linux VM'
