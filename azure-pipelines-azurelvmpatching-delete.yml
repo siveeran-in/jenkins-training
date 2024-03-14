@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: myserver
+
+variables:
+  TF_LOG: 'INFO'
+  TF_LOG_PATH: '/tmp/terraform_ado.log'
+
+jobs:
+- job: AzureLinuxVMPatchingDestroy
+  displayName: AzureLinuxVMPatchingDestroy
+
+  steps:
+  - script: echo Destroying Linux VM Patching on Azure
+    displayName: 'Destroy Linux VM Patching on Azure'
+
+  - script: |
+      cd azure_linux_vm_patch
+      terraform init
+      sudo terraform Destroy -auto-approve
+    displayName: 'Destroy Linux VM Patching'
