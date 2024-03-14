@@ -19,7 +19,5 @@ jobs:
   - script: |
       cd azure_linux_vm
       terraform init
-      terraform validate
-      sudo terraform plan
       sudo terraform Destroy -auto-approve
     displayName: 'Destroy Linux VM'
