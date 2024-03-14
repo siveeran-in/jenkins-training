@@ -1,0 +1,21 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: myserver
+
+steps:
+- script: echo Deploying Linux VM on Azure
+  displayName:  'Deploy Linux VM on Azure'
+
+- script: |
+    cd azure_linux_vm
+    terraform init
+    terraform validate
+    sudo terraform plan
+    sudo terraform apply -auto-approve
+  displayName: 'Deploy Linux VM'
