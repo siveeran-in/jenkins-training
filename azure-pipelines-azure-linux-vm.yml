@@ -11,15 +11,15 @@ pool: myserver
 jobs:
 - job: AzureLinuxVMDeploy
   displayName: AzureLinuxVMDeploy
+  
+  steps:
+  - script: echo Deploying Linux VM on Azure
+    displayName: 'Deploy Linux VM on Azure'
 
- steps:
- - script: echo Deploying Linux VM on Azure
-   displayName:  'Deploy Linux VM on Azure'
-
-   - script: |
-     cd azure_linux_vm
-     terraform init
-     terraform validate
-     sudo terraform plan
-     sudo terraform apply -auto-approve
-     displayName: 'Deploy Linux VM'
+  - script: |
+      cd azure_linux_vm
+      terraform init
+      terraform validate
+      sudo terraform plan
+      sudo terraform apply -auto-approve
+    displayName: 'Deploy Linux VM'
