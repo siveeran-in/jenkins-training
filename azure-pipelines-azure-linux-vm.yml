@@ -8,6 +8,10 @@ trigger:
 
 pool: myserver
 
+jobs:
+- job: AzureLinuxVMDeploy
+  displayName: AzureLinuxVMDeploy
+  
 steps:
 - script: echo Deploying Linux VM on Azure
   displayName:  'Deploy Linux VM on Azure'
