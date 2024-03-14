@@ -8,10 +8,6 @@ trigger:
 
 pool: myserver
 
-variables:
-  TF_LOG: 'INFO'
-  TF_LOG_PATH: '/tmp/terraform_ado.log'
-
 jobs:
 - job: AzureLinuxVMPatchingDestroy
   displayName: AzureLinuxVMPatchingDestroy
