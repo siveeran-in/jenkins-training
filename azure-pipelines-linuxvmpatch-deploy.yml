@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: myserver
+
+variables:
+  TF_LOG: 'INFO'
+  TF_LOG_PATH: '/tmp/terraform_ado.log'
+
+jobs:
+- job: AzureLinuxVMPatchingDeploy
+  displayName: AzureLinuxVMPatchingDeploy
+
+  steps:
+  - script: echo Deploying Linux VM Patching on Azure
+    displayName: 'Deploy Linux VM Patching on Azure'
+
+  - script: |
+      cd azure_linux_vm_patch
+      terraform init
+      terraform validate
+      sudo terraform plan
+      sudo terraform apply -auto-approve
+    displayName: 'Deploy Linux VM Patching'
