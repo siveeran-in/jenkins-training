@@ -19,6 +19,16 @@ resource "azurerm_kubernetes_cluster" "example" {
     max_count           = "5"
   }
 
+   default_node_pool {
+    name       = "default-1"
+    node_count = 2
+    vm_size    = var.size
+    enable_auto_scaling = true
+    enable_node_public_ip = true
+    min_count           = "2"
+    max_count           = "5"
+  }
+
   identity {
     type = "SystemAssigned"
   }
