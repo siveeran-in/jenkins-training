@@ -14,21 +14,12 @@ resource "azurerm_kubernetes_cluster" "example" {
     node_count = 2
     vm_size    = var.size
     enable_auto_scaling = true
-    enable_node_public_ip = true
-    min_count           = "2"
+    min_count           = "1"
     max_count           = "5"
-  }
-
-   default_node_pool {
-    name       = "default-1"
-    node_count = 2
-    vm_size    = var.size
-    enable_auto_scaling = true
     enable_node_public_ip = true
-    min_count           = "2"
-    max_count           = "5"
+    temporary_name_for_rotation = "nodepool-1"
   }
-
+  
   identity {
     type = "SystemAssigned"
   }
