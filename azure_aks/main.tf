@@ -14,6 +14,7 @@ resource "azurerm_kubernetes_cluster" "example" {
     node_count = 3
     vm_size    = var.size
     enable_auto_scaling = true
+    enable_node_public_ip = true
     min_count           = "2"
     max_count           = "5"
   }
