@@ -21,7 +21,7 @@ jobs:
     displayName: 'Deploy AKS Rocky Webserver'
 
   - script: |
-      cd aks_webserver
+      cd aks_webserver_rocky
       terraform init
       terraform validate
       sudo terraform plan
