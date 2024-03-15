@@ -20,10 +20,16 @@ jobs:
       cd aks_webserver_rocky
       terraform init
       sudo terraform destroy -auto-approve
+    displayName: 'AKSCompletedDetroy'
+
+  - script: |
       cd aks_webserver
       terraform init
       sudo terraform destroy -auto-approve
+    displayName: 'AKSCompletedDetroy'
+
+  - script: |
       cd azure_aks
       terraform init
       sudo terraform destroy -auto-approve
-    displayName: 'AKSCompletedDetroy'
+    displayName: 'AKSCompletedDetroy'  
