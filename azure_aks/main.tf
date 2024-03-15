@@ -17,7 +17,7 @@ resource "azurerm_kubernetes_cluster" "example" {
     min_count           = "1"
     max_count           = "5"
     enable_node_public_ip = true
-    temporary_name_for_rotation = "nodepool-1"
+    temporary_name_for_rotation = "nodepool1"
   }
   
   identity {
