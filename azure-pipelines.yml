@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: myserver
+
+jobs:
+- job: AKSCompletedDetroy
+  displayName: AKSCompletedDetroy
+
+  steps:
+  - script: echo AKSCompletedDetroy
+    displayName: 'AKSCompletedDetroy'
+
+  - script: |
+      cd aks_webserver_rocky
+      terraform init
+      sudo terraform destroy -auto-approve
+      cd aks_webserver
+      terraform init
+      sudo terraform destroy -auto-approve
+      cd azure_aks
+      terraform init
+      sudo terraform destroy -auto-approve
+    displayName: 'AKSCompletedDetroy'
