@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: myserver
+
+variables:
+  TF_LOG: 'INFO'
+  TF_LOG_PATH: '/tmp/terraform_ado.log'
+
+jobs:
+- job: AzurewinVMDeploy
+  displayName: AzurewinVMDeploy
+  
+  steps:
+  - script: echo Deploying win VM on Azure
+    displayName: 'Deploy win VM on Azure'
+
+  - script: |
+      cd azure_win_vm
+      terraform init
+      terraform validate
+      sudo terraform plan
+      sudo terraform apply -auto-approve
+    displayName: 'Deploy Win VM'
