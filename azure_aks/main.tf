@@ -11,7 +11,7 @@ resource "azurerm_kubernetes_cluster" "example" {
 
   default_node_pool {
     name       = "default"
-    node_count = 3
+    node_count = 2
     vm_size    = var.size
     enable_auto_scaling = true
     enable_node_public_ip = true
